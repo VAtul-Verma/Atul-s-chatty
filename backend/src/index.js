@@ -32,7 +32,7 @@ app.use("/api/messages", messageRoutes);
 if (process.env.NODE_ENV === "production") {
     app.use(express.static(path.join(__dirname, "../frontend/dist")));
 
-    app.get("*", (req, res) => {  //any route will send to our chatup index.html file
+    app.get("/*", (req, res) => {  //any route will send to our chatup index.html file
         res.sendFile(path.join(__dirname, "../frontend", "dist", "index.html"));
     });
 }
